@@ -1,16 +1,20 @@
-import os
-import yaml
+import os, yaml
 
-wahere_cd=""
-dir_init="./test"
+dir_list={}
+dir_init="./test/"  
+yaml_name=".list.yml"
 
-for dirs in os.listdir(dir_pos):
-    print(dirs)
-    ans=os.path.isfile(f"{dir_init}/{dirs}")
-    print(f"{ans}\n")
+for pos, dirs, files in os.walk(dir_init):
+    for dir in dirs:    
+        if '.' in dir:
+            pass
+        else:
+            print(pos)
+            print(dir)
     
 exit()
+
 # End of program
-with open(f"{dir_init}/.list.yml", "w") as f:
+with open(f"{dir_init}{yaml_name}", "w") as f:
     yaml.dump(dir_list, f)
     f.close()
