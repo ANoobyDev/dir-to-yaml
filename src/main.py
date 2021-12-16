@@ -9,6 +9,7 @@ for pos, dirs, files in os.walk(dir_init):
         if '.' in dir:
             pass
         else:
+            # with the help of 'pos', checks if it exists on the dictionary, and if it does, will make its location a list(if it wasn't one already) and add the 'dir'
             print(pos)
             print(dir)
     
