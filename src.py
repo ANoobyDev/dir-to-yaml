@@ -11,5 +11,5 @@ def dir_to_yaml(path):
 
 # End of program
 with open(f"{yaml_pos}", "w") as f:
-    yaml.dump((dir_init), f)
+    yaml.dump(dir_to_yaml(dir_init), f)
     f.close()
