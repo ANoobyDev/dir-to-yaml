@@ -3,18 +3,13 @@ import os, yaml
 dir_init="test"                      # The dir to convert to yaml
 yaml_pos="test/.list.yml"            # The yaml file
 
-def pathto_dict(path):
+def dir_to_yaml(path):
     file_token = ''
     for root, dirs, files in os.walk(path):
-        if "." in dirs:
-            pass
-        else:
-            tree = {dir: pathto_dict(os.path.join(root, dir)) for dir in dirs}
-            print("ree")
-            print(tree)
-            return tree
+        tree = {dir: dir_to_yaml(os.path.join(root, dir)) for dir in dirs}
+        return tree
 
 # End of program
 with open(f"{yaml_pos}", "w") as f:
-    yaml.dump(pathto_dict("test"), f)
+    yaml.dump((dir_init), f)
     f.close()
